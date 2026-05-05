@@ -283,6 +283,7 @@ function toggleLanguage() {
   const placeholders = {
     customerName: { en: "e.g. Budi Santoso",    id: "cth. Budi Santoso" },
     customerEmail:{ en: "e.g. budi@email.com",  id: "cth. budi@email.com" },
+    customerPhone:{ en: "e.g. 081234567890",  id: "cth. 081234567890" },
     orderNotes:   { en: "Any special requests?", id: "Ada permintaan khusus?" }
   };
   Object.keys(placeholders).forEach(id => {
@@ -298,6 +299,7 @@ function toggleLanguage() {
 // ---- WHATSAPP ORDER ----
 function sendOrder() {
   const name  = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
   const email = document.getElementById("customerEmail").value.trim();
   const notes = document.getElementById("orderNotes").value.trim();
 
@@ -331,8 +333,8 @@ function sendOrder() {
     : `Halo! Saya ingin memesan 🍿`;
 
   const customerInfo = currentLang === "en"
-    ? `*Customer Details:*\nName: ${name}\nEmail: ${email}`
-    : `*Detail Pelanggan:*\nNama: ${name}\nEmail: ${email}`;
+    ? `*Customer Details:*\nName: ${name}\nPhone: ${phone}\nEmail: ${email}`
+    : `*Detail Pelanggan:*\nNama: ${name}\nNomor Telepon: ${phone}\nEmail: ${email}`;
 
   const orderHeader = currentLang === "en"
     ? `*Order Details:*` : `*Detail Pesanan:*`;
