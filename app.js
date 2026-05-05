@@ -5,7 +5,7 @@
 
 // ---- YOUR WHATSAPP NUMBER ----
 // Replace with your number in international format (no + or spaces)
-const WHATSAPP_NUMBER = "628123456789"; // e.g. Indonesia: 628xxxxxxxxx
+const WHATSAPP_NUMBER = "6289636306541"; // e.g. Indonesia: 628xxxxxxxxx
 
 // ---- MENU DATA ----
 // For images: put your image files in an /images/ folder on GitHub.
