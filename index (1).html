@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SnackBox 🍿 — Order Your Snacks!</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Boogaloo&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo">🍿 SnackBox</div>
+  <div class="nav-actions">
+    <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">🌐 Indonesia</button>
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 <span data-en="Cart" data-id="Keranjang">Cart</span>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-blobs">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-emoji-row">🍟 🧁 🍩 🥤 🍿 🍫</div>
+    <h1 class="hero-title">
+      <span data-en="Craving Something" data-id="Lagi Pengen">Craving Something</span><br/>
+      <span class="highlight" data-en="Delicious? 😋" data-id="Yang Enak? 😋">Delicious? 😋</span>
+    </h1>
+    <p class="hero-sub" data-en="Order your favorite snacks in seconds. Fresh, yummy, and delivered with love! 💛" data-id="Pesan camilan favoritmu dalam hitungan detik. Segar, enak, dan dikirim dengan penuh cinta! 💛">
+      Order your favorite snacks in seconds. Fresh, yummy, and delivered with love! 💛
+    </p>
+    <a href="#menu" class="hero-cta" data-en="🍕 See the Menu!" data-id="🍕 Lihat Menu!">🍕 See the Menu!</a>
+  </div>
+  <div class="hero-art">
+    <div class="floating-icon" style="top:10%;left:5%">🍩</div>
+    <div class="floating-icon" style="top:30%;right:8%">🥤</div>
+    <div class="floating-icon" style="bottom:20%;left:10%">🍫</div>
+    <div class="floating-icon" style="bottom:10%;right:15%">🍿</div>
+    <div class="floating-icon" style="top:60%;left:50%">⭐</div>
+  </div>
+</section>
+
+<!-- FEATURES STRIP -->
+<div class="features-strip">
+  <div class="feature-item">
+    <span>⚡</span>
+    <span data-en="Fast Order" data-id="Pesan Cepat">Fast Order</span>
+  </div>
+  <div class="feature-item">
+    <span>💯</span>
+    <span data-en="Always Fresh" data-id="Selalu Segar">Always Fresh</span>
+  </div>
+  <div class="feature-item">
+    <span>❤️</span>
+    <span data-en="Made with Love" data-id="Dibuat dengan Cinta">Made with Love</span>
+  </div>
+  <div class="feature-item">
+    <span>🚀</span>
+    <span data-en="Easy Checkout" data-id="Checkout Mudah">Easy Checkout</span>
+  </div>
+</div>
+
+<!-- MENU SECTION -->
+<section class="menu-section" id="menu">
+  <div class="section-header">
+    <h2 data-en="Our Menu 🍽️" data-id="Menu Kami 🍽️">Our Menu 🍽️</h2>
+    <p data-en="Pick your favorites and add them to your cart!" data-id="Pilih favoritmu dan masukkan ke keranjang!">Pick your favorites and add them to your cart!</p>
+  </div>
+
+  <div class="menu-filter">
+    <button class="filter-btn active" onclick="filterMenu('all')" data-en="All" data-id="Semua">All</button>
+    <button class="filter-btn" onclick="filterMenu('snack')" data-en="🍟 Snacks" data-id="🍟 Camilan">🍟 Snacks</button>
+    <button class="filter-btn" onclick="filterMenu('sweet')" data-en="🍩 Sweets" data-id="🍩 Manis">🍩 Sweets</button>
+    <button class="filter-btn" onclick="filterMenu('drink')" data-en="🥤 Drinks" data-id="🥤 Minuman">🥤 Drinks</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+    <!-- Populated by JS -->
+  </div>
+</section>
+
+<!-- LOCATION SECTION -->
+<section class="location-section" id="location">
+  <div class="section-header">
+    <h2 data-en="Find Us 📍" data-id="Temukan Kami 📍">Find Us 📍</h2>
+    <p data-en="Come visit us or order for delivery!" data-id="Kunjungi kami atau pesan untuk diantar!">Come visit us or order for delivery!</p>
+  </div>
+  <div class="map-wrapper">
+    <!-- REPLACE the src below with your actual Google Maps embed link -->
+    <iframe
+      id="mapEmbed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126748.54580122305!2d106.68943833085938!3d-6.229386900000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+      width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- ORDER FORM SECTION -->
+<section class="order-section" id="order">
+  <div class="section-header">
+    <h2 data-en="Complete Your Order 📝" data-id="Lengkapi Pesananmu 📝">Complete Your Order 📝</h2>
+    <p data-en="Fill in your details and we'll confirm via WhatsApp!" data-id="Isi datamu dan kami konfirmasi via WhatsApp!">Fill in your details and we'll confirm via WhatsApp!</p>
+  </div>
+
+  <div class="order-form-wrapper">
+    <div class="order-summary" id="orderSummary">
+      <h3 data-en="Your Cart is Empty 🛒" data-id="Keranjangmu Kosong 🛒">Your Cart is Empty 🛒</h3>
+      <p data-en="Add items from the menu above!" data-id="Tambahkan item dari menu di atas!">Add items from the menu above!</p>
+    </div>
+
+    <div class="form-box">
+      <div class="form-group">
+        <label data-en="Your Name 👤" data-id="Nama Kamu 👤">Your Name 👤</label>
+        <input type="text" id="customerName" placeholder="e.g. Budi Santoso" />
+      </div>
+      <div class="form-group">
+        <label data-en="Email Address 📧" data-id="Alamat Email 📧">Email Address 📧</label>
+        <input type="email" id="customerEmail" placeholder="e.g. budi@email.com" />
+      </div>
+      <div class="form-group">
+        <label data-en="Notes (optional) 📝" data-id="Catatan (opsional) 📝">Notes (optional) 📝</label>
+        <textarea id="orderNotes" rows="3" placeholder="Any special requests?"></textarea>
+      </div>
+      <button class="order-btn" onclick="sendOrder()">
+        <span data-en="📲 Send Order via WhatsApp" data-id="📲 Kirim Pesanan via WhatsApp">📲 Send Order via WhatsApp</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">🍿 SnackBox</div>
+  <p data-en="Made with 💛 for snack lovers everywhere." data-id="Dibuat dengan 💛 untuk pecinta camilan di mana saja.">Made with 💛 for snack lovers everywhere.</p>
+  <p class="footer-small">© 2025 SnackBox</p>
+</footer>
+
+<!-- FLOATING CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 <span data-en="Your Cart" data-id="Keranjangmu">Your Cart</span></h3>
+    <button onclick="toggleCart()" class="close-cart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="empty-cart">
+      <span>🛒</span>
+      <p data-en="Your cart is empty!" data-id="Keranjangmu kosong!">Your cart is empty!</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span data-en="Total:" data-id="Total:">Total:</span>
+      <span id="cartTotal">Rp 0</span>
+    </div>
+    <a href="#order" onclick="toggleCart()" class="checkout-btn" data-en="Checkout →" data-id="Checkout →">Checkout →</a>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
